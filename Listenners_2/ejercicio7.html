@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = inicio;
+    function inicio(){
+        window.addEventListener("mousemove", cambiaColor);
+    }
+    function cambiaColor(event){
+        var totalX = window.innerWidth;
+        var totalY = window.innerHeight;
+        
+        var x10 = totalX * 0.1;
+        var y10 = totalY * 0.1;
+        var x20 = totalX * 0.2;
+        var y20 = totalY * 0.2;
+
+        var ratonX = event.clientX;
+        var ratonY = event.clientY;
+        if ((ratonX <= x10 || ratonX >= (totalX-x10)) || (ratonY <= y10 || ratonY >= (totalY-y10))){
+            document.body.style.backgroundColor="red";
+        }else if((ratonX <= x20 || ratonX >= (totalX-x20)) || (ratonY <= y20 || ratonY >= (totalY-y20))){
+            document.body.style.backgroundColor="yellow";
+        }else{
+            document.body.style.backgroundColor="green";
+        }
+
+
+
+
+    }
+    
+</script>
+<body>
+    
+</body>
+</html>

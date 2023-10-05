@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Eventos</title> 
+
+
+<script>
+    window.onload = inicio;
+    function inicio(){
+
+       var cuadros =  document.getElementsByClassName("linea");
+
+        for(var i =0; i<cuadros.length; i++){
+            cuadros[i].addEventListener("mouseover",cambiaColor);
+            cuadros[i].addEventListener("click",cambiaColor);
+            cuadros[i].addEventListener("mouseout",cambiaColor);
+        }
+    }
+
+
+function cambiaColor(evento){
+    console.log("entro");
+    if(evento.type =="mouseover"){
+        this.style.backgroundColor = "green";
+    }else if(evento.type =="click"){
+        this.style.backgroundColor = "red";
+    }else if(evento.type =="mouseout"){
+        this.style.backgroundColor = "blue";
+    }
+}
+
+
+
+</script>
+
+
+
+</head>
+<style type="text/css">
+.linea{
+height:100px; 
+width:100px; 
+background:blue;
+display:inline-block;
+}
+</style>
+<body>
+<div class="linea">ASR31</div>
+<div class="linea">ASR32</div>
+<div class="linea">SM21</div>
+<div class="linea">SM22</div>
+<div class="linea">DW31</div>
+<div class="linea">DW32</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bom</title>
+<script>
+
+let ventana;
+function carga(){
+
+ventana = window.open("","ventana1","width=300,height=400");
+
+var btn1 = document.createElement("button");
+btn1.textContent = "arriba";
+btn1.addEventListener("click",muevearriba);
+ventana.document.body.appendChild(btn1);
+
+var btn2 = document.createElement("button");
+btn2.textContent = "abaji";
+btn2.addEventListener("click",mueveabajo);
+ventana.document.body.appendChild(btn2);
+
+var btn3 = document.createElement("button");
+btn3.textContent = "izq";
+btn3.addEventListener("click",mueveizq);
+ventana.document.body.appendChild(btn3);
+
+var btn4 = document.createElement("button");
+btn4.textContent = "drch";
+btn4.addEventListener("click",muevedrch);
+ventana.document.body.appendChild(btn4);
+
+ventana.document.addEventListener("mouseover",escapa);
+}
+
+function escapa(){
+    let num1 = Math.floor((Math.random() * (500 - (-500) + 1)) + (-300));
+   let num2 =  Math.floor((Math.random() * (500 -(-500) + 1)) + (-300));
+    ventana.window.moveBy(num1,num2);
+}
+function parar(){
+ventana.document.removeEventListener("mouseover",escapa);
+cventana.focus();
+}
+
+
+
+function muevearriba(){
+    ventana.window.moveBy(20,-10);
+}
+function mueveabajo(){
+    ventana.window.moveBy(0,10);
+}
+function mueveizq(){
+    ventana.window.moveBy(-10,0);
+}
+
+function muevedrch(){
+    ventana.window.moveBy(10,0);
+}</script>
+
+</head>
+
+<body>
+<button onclick="carga()">Abrir ventana</button>
+<button onclick="parar()">Parar</button>
+</body>
+
+
+</html>

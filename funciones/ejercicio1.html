@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = inicio;
+
+
+        function inicio(){
+
+            var frase = prompt("INTRODUCE UNA FRASE");
+            calcula(frase);
+
+            var caracteresMin = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
+            var caracteresMay =['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            
+
+
+
+            function calcula(frase){
+
+                var may  = 0;
+                var min = 0;
+                var invalidos = 0;
+
+                for(var i =0; i<frase.length; i++){
+                    for(var j =0; j<caracteresMin.length;j++){
+                        if(frase[i]==caracteresMin[j]){
+                            min++;
+                        }
+                        if(frase[i]==caracteresMay[j]){
+                            min++;
+                        }else{
+                            invalidos++;
+                        }
+                    }
+                }
+
+                console.log(frase.length - invalidos + "caracteres en toda la frase");
+                console.log(may + " mayusculas ");
+                console.log(min + " minusculas");
+            }
+        }
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+    
+</body>
+</html>

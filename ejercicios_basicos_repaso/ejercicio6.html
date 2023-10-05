@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+window.onload=inicio();
+
+function inicio(){
+
+var frase = prompt("introduce una frase");
+frase.toLowerCase();
+
+for(var i =0; i<frase.length;i++){
+   if( frase.charAt(i) == "a" ){
+    document.write("a");
+   }
+   else if( frase.charAt(i) =="e" ){
+    document.write("e");
+   }
+   else if( frase.charAt(i) == "i"){
+    document.write("i");
+   }
+   else if( frase.charAt(i) == "o" ){
+    document.write("o");
+   }
+   if( frase.charAt(i) == "u"){
+    document.write("u");
+   }
+}
+
+
+
+}
+
+</script>
+
+
+<body>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    window.onload = inicio;
+function inicio(){
+var parr= document.getElementById("parrafo");
+parr.addEventListener("click",cambiacolor);
+parr.addEventListener("dblclick",cambiacolor);
+
+
+}
+
+function cambiacolor(evento){
+
+    if(evento.type=="click"){
+        this.style.color="red"
+    }
+    else if(evento.type=="dblclick"){
+        this.style.color="green"
+    }
+
+
+
+}
+
+
+</script>
+
+</head>
+<body>
+    <p id="parrafo">Hola clicame una o dos veces</p>
+   
+</body>
+</html>

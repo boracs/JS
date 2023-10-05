@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .master {
+            height: 270px;
+            width: 800px;
+            padding: 10px;
+            border: 2px solid red;
+            background-color: green;
+            margin: 0 auto 0 auto;
+        }
+
+        div {
+            height: 100px;
+            width: 500px;
+            padding: 10px;
+            border: 2px solid red;
+            background-color: blue;
+            margin: 0 auto 0 auto;
+        }
+
+        p {
+            background-color: orange;
+            text-align: center;
+        }
+
+        span {
+            background-color: purple;
+            border: 2px solid red;
+        }
+    </style>   
+    
+    
+
+    <script>
+
+
+//al clciar en u elemento hijo que sus padres se conviertan en amarillo
+                window.onload = iniciar;
+                function iniciar(){
+                    asociarEvento(document.body);
+                }
+                function asociarEvento(elemento){
+                    elemento.addEventListener("click", pintarAmarillo);
+                    let hijos = elemento.children;
+                    for(let i=0; i<hijos.length;i++){
+                        asociarEvento(hijos[i]);
+                    }
+                }
+                function pintarAmarillo(event){
+                 let borde = window.getComputedStyle(this , null).getPropertyValue("border-bottom-color");
+               if(borde!="rgb(255,0,0)"){
+                    this.style.backgroundColor = "yellow";
+               }
+                }
+
+             
+    </script>
+
+
+</head>
+<body>
+    <div class="master">
+        <div>
+            <p>Soy un parrafo.<span>Soy un span</span></p>
+        </div>
+        </br>
+        <div>
+            <p>Soy un parrafo.<span>Soy un span</span></p>
+        </div>
+    </div>
+</body>
+
+
+</html>

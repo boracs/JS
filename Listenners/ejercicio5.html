@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var caja = document.createElement("div"); 
+        var lista=document.createElement("ul");
+        for(var i =0;i<3;i++){
+            var elemento = document.createElement("li");
+            var enlace = document.createElement("a");
+            if(i==0){
+                enlace.textContent='Adobe';
+                enlace.setAttribute("href",'www.adobe.com');
+            }else if(i==1){
+                enlace.textContent='Apple';
+                enlace.setAttribute("href",'www.apple.com');
+            }else{
+                enlace.textContent='IBM';
+                enlace.setAttribute("href",'www.ibm.com');
+            }
+            enlace.addEventListener("mouseover",mostrarURL);
+            elemento.appendChild(enlace);
+            lista.appendChild(elemento);
+        }
+        var direccion = document.createElement("p");
+        direccion.style.background="white",
+        direccion.textContent="www.zubiri.com";
+        
+        function mostrarURL(){
+            var dir = this.getAttribute("href");
+            direccion.textContent=dir;
+        }
+        caja.appendChild(lista);
+        caja.appendChild (direccion);
+        document.body.appendChild(caja);
+
+    </script>
+</body>
+</html>

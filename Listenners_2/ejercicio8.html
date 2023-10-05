@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #cuadro{
+        width: 300px;
+        height: 150px;
+        border: 2px solid black;
+        background-color: yellow;
+        position: absolute;
+        
+    }
+</style>
+<script>
+    window.onload = inicio;
+
+    function inicio(){
+        window.addEventListener("keydown", mueve);
+    }
+    
+    function mueve(event){
+
+        var cubo = document.querySelector("#cuadro");
+
+        if (event.keyCode === 39){
+            var left = window.getComputedStyle(cubo, null).getPropertyValue("left");
+            cubo.style.left = (parseInt(left)+10)+ "px";
+        }
+        else if(event.keyCode === 37){
+            var left = window.getComputedStyle(cubo, null).getPropertyValue("left");
+            cubo.style.left = (parseInt(left)-10)+ "px";
+        }
+        else if(event.keyCode === 38){
+            var top = window.getComputedStyle(cubo, null).getPropertyValue("top");
+            cubo.style.top = (parseInt(top)-10)+ "px";
+
+        }else if(event.keyCode === 40){
+            var top = window.getComputedStyle(cubo, null).getPropertyValue("top");
+            cubo.style.top = (parseInt(top)+10)+ "px";
+        }
+    }
+</script>
+<body>
+    <div id="cuadro">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bom</title>
+
+
+<script>
+
+function carga(){
+var url = document.URL;
+console.log(url);
+var navegaor = navigator.appName;
+console.log(navegaor);
+var titulo = document.title;
+console.log(titulo);
+var formularios = document.forms;
+console.log(formularios.length);
+var alturaVentana = screen.height;
+var anchuraVentana = screen.width;
+console.log(" altura " + alturaVentana + " anchura " +anchuraVentana);
+var historial= history.length;
+console.log("el historial de visitas es de " + historial);
+if(historial>3){
+    console.log("el historial de visitas es largo");
+}
+
+}
+
+
+
+
+
+</script>
+
+
+
+</head>
+
+
+<body>
+<button onclick=" carga()">Pulsame para obtener la informacion</button>
+<div i="informacion"></div>
+
+</body>
+</html>

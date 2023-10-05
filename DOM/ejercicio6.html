@@ -1,0 +1,110 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <title>Manipular nodos</title>
+    <style type="text/css">
+        #cuadro {
+            width: 400px;
+            height: 250px;
+            border: 1px black solid;
+            float: right;
+            font-family: arial;
+            overflow: auto
+        }
+
+        p {
+            font-size: 1em;
+            font-family: arial;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Manipulación de nodos. </h1>
+    <div id="cuadro">
+        <h4 id="primero">primer texto fijo</h4>
+        <h4 id="segundo">Segundo texto fijo</h4>
+        <h4 id="tercero">Tercer texto fijo</h4>
+    </div>
+    <p>Pulsa en los siguientes párrafos, para cambiar los textos de la caja de la derecha</p>
+    <p onclick="restaurar()">Pulsa en este párrafo para restaurar el estado inicial de la caja.</p>
+    <button onclick="borrarTodo()">borrrar todo</button>
+
+    <p onclick="debajo()">Insertar nuevo elemento debajo de todos</p>
+    <p onclick="delante()">Insertar nuevo elemento delante del segundo.</p>
+    <p onclick="reemplazar()">reemplazar el primer elemento de la caja por otro nuevo</p>
+    <p onclick="suprimir()">Suprimir el tercer párrafo</p>
+    <p onclick="cambiar()">Poner el segundo texto en último lugar</p>
+    <p onclick="copiar()">Copia del nuevo elemento, se inserta al final</p>
+
+
+    <script>
+        var contenedor = document.getElementById("cuadro");
+        var p1 = document.getElementById("primero");
+        var p2 = document.getElementById("segundo");
+        var p3 = document.getElementById("tercero");
+
+        function borrarTodo() {
+            while (contenedor.childElementCount > 0) {
+                contenedor.removeChild(contenedor.firstChild);
+            }
+        };
+
+        function restaurar() {
+            borrarTodo();
+            contenedor.appendChild(p1);
+            contenedor.appendChild(p2);
+            contenedor.appendChild(p3);
+        }
+
+        function debajo() {
+            let nuevoElemento = document.createElement("p");
+            nuevoElemento.textContent = "Elemento insertado debajon de todos";
+            contenedor.appendChild(nuevoElemento);
+        }
+
+        function delante() {
+            let nuevoElemento = document.createElement("p");
+            nuevoElemento.textContent = "Creando parrafo delante del segundo";
+            let arrP = document.getElementsByTagName("h4");
+            contenedor.insertBefore(nuevoElemento, arrP[1]);
+        }
+        var contreemplazar = 0;
+        function reemplazar() {
+            let nuevoElemento = document.createElement("p");
+            nuevoElemento.textContent = "remplazado";
+            if (contreemplazar == 0) {
+                let arrP = document.getElementsByTagName("h4");
+                contenedor.replaceChild(nuevoElemento, arrP[0]);
+                contreemplazar++;    //porque no funciona con first element. Al hacerlo como lo tenog hecho no me es dinamico
+            }
+        }
+        //porque esto no funcuiona= que sin el if???
+        var cont2 = 0;
+        function suprimir() {
+            if (cont2 == 0) {
+                contenedor.removeChild(contenedor.lastChild); // Aqui pueod poner lastchild y me suprime siempre el ultimo
+                cont2 = 4;
+            }
+        }
+
+        function cambiar() {
+            var arraydeparrafos = document.getElementsByTagName("h4");
+            contenedor.appendChild(arraydeparrafos[1]);
+        }
+        function copiar() {
+            var parrafoArr = contenedor.getElementsByTagName('p');
+            var parrafo = parrafoArr[0];
+            let newElement = document.createElement("p");
+            newElement.textContent = parrafo.textContent;
+            console.log(newElement);
+            contenedor.appendChild(newElement);
+        }
+
+    </script>
+
+</body>
+
+</html>

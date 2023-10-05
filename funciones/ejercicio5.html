@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+       window.onload = inicio;
+       function inicio(){
+
+        var frase = prompt("Introduce una frase");
+        frase = frase.toLowerCase();
+        frase =filtra(frase);
+        console.log(frase);
+  
+
+        console.log(comparo(frase));
+        }
+
+
+        function filtra(frasemetida){
+            var frase2="";
+            for(i=0; i<frasemetida.length; i++){
+                if('a'<=frasemetida[i] && ('z'>=frasemetida[i])){
+                    frase2 = frase2+ frasemetida.charAt(i);
+                }
+            }
+            return frase2;
+        }
+        
+        
+        function comparo(fraseAComparar){
+                var esPalindromo = true;
+                for(var i =0; i<fraseAComparar.length; i++){
+                    if(fraseAComparar[i] != fraseAComparar[fraseAComparar.length-i-1]){
+                        esPalindromo = false;
+                    }
+                }
+               return esPalindromo;
+        };
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
