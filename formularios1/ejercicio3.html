@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+    </style>
+
+
+    <script>
+        window.onload = inicio;
+        function inicio(){
+            document.formulario.problema.maxLength="5";
+            document.formulario.addEventListener("submit",comprueba);
+        }
+
+        function comprueba(event){
+            if(compruebaTelefono() && compruebaEmail()){
+                alert("El formulario se envio correctamente");
+            }else{
+                alert("El formulario no se puod enviar revise los campos");
+                event.preventDefault();
+            }
+            
+        }
+
+        function compruebaTelefono(){
+            var tlfValue = document.formulario.tlf.value;
+            if(tlfValue.length==9 && isNaN(tlfValue)==false){
+                return true;
+            }
+        }
+        function compruebaEmail(){
+            var correoValue = document.formulario.email.value;
+            if(correoValue.includes("@") && correoValue.includes(".")){
+                return true;
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+
+<form action="" name="formulario">
+<label for="">Nombre</label>
+<input type="text" name="nombre">
+<label for="">Apellido</label>
+<input type="text" name="apellido">
+<label for="">Problema</label>
+<textarea name="problema" id="" cols="30" rows="10"></textarea>
+<label for="">Telefono</label>
+<input type="text" name="tlf">
+<label for="">E-mail</label>
+<input type="text" name="email">
+<input type="submit">
+</form>
+
+
+    
+</body>
+</html>

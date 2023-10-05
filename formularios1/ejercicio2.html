@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div{
+            width: 70px;
+            height: 70px;
+            background-color: brown;
+            margin: 2%;
+        }
+    </style>
+
+    <script>
+        window.onload = inicio;
+        function inicio(){
+        var color = document.getElementById("inputColor");
+        color.addEventListener("change",pintadiv);
+        }
+        function pintadiv(){   
+           var IndxSel = document.getElementsByName("selector1")[0].selectedIndex;
+           var divs = document.getElementsByClassName("div");
+            divs[IndxSel].style.backgroundColor = this.value;
+        }
+    </script>
+
+</head>
+<body>
+<select name="selector1" id="">
+    <option value="1">div1</option>
+    <option value="2">div2</option>
+    <option value="3">div3</option>
+    <option value="4">div4</option>
+</select>
+<input type="color" value="#ffffff" id="inputColor" >
+<div class="div"> div1 </div>
+<div class="div"> div2 </div>
+<div class="div"> div3 </div>
+<div class="div"> div4 </div>
+</body>
+</html>

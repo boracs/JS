@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+window.onload=inicio;
+function inicio(){
+ var formu = document.formulario;
+formu.addEventListener("submit",chequea);
+}
+function chequea(event){
+   event.preventDefault();
+   let formu = document.formulario;
+   let texto = "falta: ";
+   let faltaAlgo =false;
+    for(var i =0; i<formu.length; i++){
+       if(formu[i].value ==""){
+        let elemento = formu[i].name;
+        texto = texto + elemento + " ";
+        faltaAlgo = true;
+       }
+    }
+    if(faltaAlgo==true){
+        alert(texto);
+       }
+}
+</script>
+
+
+</head>
+<body>
+
+<form action="" name="formulario">
+<label for="nombre"> nombre </label>
+<input type="text" name ="nombre" placeholder="nombre">
+<label for="nombre"> apellido </label>
+<input type="text" name ="apellido"placeholder="apellido">
+<label for="nombre"> direccion </label>
+<input type="text" name ="direccion" placeholder="direccion">
+<input type="submit" name="btnenviar" value="enviarformulario" >
+</form>
+
+    
+    
+</body>
+</html>
