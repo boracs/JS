@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            width: 400px;
+            flex-wrap: wrap;
+            margin: 200px  auto;
+        }
+        label{
+              
+            padding: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <form action="" id="for">
+      <label for="nombre">Nombre:
+        <input type="text"  name ="nombre" id="nombre">
+      </label>
+      <label for="apellido" >Apellido:
+        <input type="text"  name ="apellido" id="apellido">
+      </label>
+      <label for="problema" >Problema:
+        <textarea name="problema" id="problema" cols="30" rows="10"></textarea>
+        <p id="contador">Te quedan 20 caracteres</p>
+      </label>
+      <label for="tlf" >tlf:
+        <input type=
+        "number" id="tlf">
+      </label>
+      <label for="email" >Email:
+        <input type= "email" id="email">
+      </label>
+      <input style="width:150px; margin: auto;" type="submit">
+     <button style="width:150px; margin: auto;">Limpiar</button>
+    </form>
+  </body>
+  <script>
+
+    //focsu en el 1º elemento
+        var formulario = document.getElementById("for");
+        window.onload = formulario[0].focus();
+    // valdiaciont6extarea
+        var textarea = document.getElementById("problema");
+        textarea.addEventListener("keydown",chequea);
+        var cont = 20; 
+        function chequea(){
+        if(textarea.value.length<20){
+            stringTA = textarea.value
+            console.log(stringTA.length);
+            document.getElementById("contador").textContent="te quedan " +(cont-1)+ "caracteres";
+            cont--;
+        }
+        else{
+            textarea.disabled=true;
+        }
+    }
+    //valido que el telefono solo admita numeros
+    /*
+    //valido que el telefono solo admita numeros
+        var telefono = document.getElementById('telefono');
+
+        telefono.addEventListener('keypress', (event)=> {
+            event.preventDefault()
+            let codigokey = event.keyCode
+            let valorkey = String.fromCharCode(codigokey)
+            let valor = parseInt(valorkey)
+            if(valor){
+                telefono.value+=valor;
+            }
+        });
+    */
+        var telefono = document.getElementById('tlf');
+        telefono.addEventListener('keypress', checqueanumero);
+
+        function checqueanumero(){
+            event.preventDefault()
+            let codigokey = event.keyCode;
+            let valorkey = String.fromCharCode(codigokey);
+            let valor = parseInt(valorkey);
+            if(valor){
+                telefono.value+=valor;
+            }
+        };
+
+
+
+  </script>
+
+  
+</html>

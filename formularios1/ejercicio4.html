@@ -11,16 +11,74 @@
             width: 200px;
         }
    </style>
+
+
 <script>
+    window.onload = inicio;
+    function inicio(){
+        document.formulario[0].focus();
+        var campos = document.formulario.elements;
+        for(var i =0;i<campos.length-1;i++){
+            if(campos[i].type=="text"){
+            campos[i].addEventListener("keypress",focusSigueinte);
+            campos[i].addEventListener("focus",ponblanco);
+            campos[i].addEventListener("blur",compruebacampos);
+            setInterval(comprueba,10);
+            }
+        }
+    }
+        function focusSigueinte(event){
+     
+            if(event.key ==="Enter" && this.type=="text"){
+                event.preventDefault();
+                var elementos = document.formulario.elements;
+                for(var i =0;i<elementos.length;i++){
+                    if(this === elementos[i]){
+                        elementos[i+1].focus();
+                    }
+                }
+            }
+        }
+        function compruebacampos(){
+            var elementos = document.formulario.elements;
+            for(var i =0;i<elementos.length;i++){
+                if(this===elementos[i]){
+                    for(var j =0; j<=i; j++){
+                        if(this.type=="text" && this.value==""){
+                        elementos[i].style.backgroundColor ="red";
+                        }else if(this.type=="text" && this.value!==""){
+                        elementos[i].style.backgroundColor ="transparent";
+                        }
+                    }
+                }
+            }
+        }
+        function ponblanco(){
+            this.style.backgroundColor ="transparent";
+        }
 
-    
+        function comprueba(){
+            var elementos = document.formulario.elements;
+            var vacio = false;
+            for(var i =0;i<elementos.length; i++){
+                if(elementos[i].value===""){
+                    vacio=true;
+                }
+            }
+            if (vacio==true){
+                document.getElementById("btnenviar").disabled = true;
+            }else{
+                document.getElementById("btnenviar").disabled = false;
+
+            }
+        }
+
+
+
 </script>
-
-
 </head>
 
 <body>
-
     <form action="" name="formulario">
         <label for="">Nombre</label>
         <input type="text" name="nombre">
@@ -34,8 +92,8 @@
         <input type="text" name="cp">
         <label for="">Provincia</label>
         <input type="text" name="provincia">
-        <input type="submit">
-        </form>
+        <input type="submit" id="btnenviar">
+    </form>
 
 </body>
 </html>
