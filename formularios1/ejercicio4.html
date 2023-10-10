@@ -18,6 +18,7 @@
     function inicio(){
         document.formulario[0].focus();
         var campos = document.formulario.elements;
+
         for(var i =0;i<campos.length-1;i++){
             if(campos[i].type=="text"){
             campos[i].addEventListener("keypress",focusSigueinte);
@@ -35,6 +36,7 @@
                 for(var i =0;i<elementos.length;i++){
                     if(this === elementos[i]){
                         elementos[i+1].focus();
+                        
                     }
                 }
             }
@@ -61,7 +63,7 @@
             var elementos = document.formulario.elements;
             var vacio = false;
             for(var i =0;i<elementos.length; i++){
-                if(elementos[i].value===""){
+                if(elementos[i].value==="" && elementos[i].type=="text"){
                     vacio=true;
                 }
             }
