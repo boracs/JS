@@ -24,58 +24,65 @@
             document.formulario.addEventListener("submit",permitirEnvio);
             document.getElementById("reset").addEventListener("click",limpia);
         }
-       
     }
-    function compruebaVacios(event){
-        var elementos = document.formulario.elements;
-        for(var i =0; i<elementos.length; i++){
-            if(this === elementos[i] && this.type=="text" && this.value==""){
-                for(var j=0; j<=i;j++){
-                    if(elementos[j].value==""){
-                    elementos[j].style.backgroundColor="red";
-                    }
-                }
-            }
+
+function focusSiguiente(e){
+
+var elementos = document.formulario.elements;
+if(e.key==="Enter"){
+    e.preventDefault();
+    for(var i =0; i<elementos.length; i++){
+        if(elementos[i]===this && elementos[i].type === "text"){
+            elementos[i+1].focus();
         }
     }
-    function focusSiguiente(e){
-        var elementos = document.formulario.elements;
-        if(e.key=="Enter"){
-            e.preventDefault();
-            for(var i =0; i<elementos.length;i++){
-                if(this==elementos[i]&& this.type=="text"){
-                    elementos[i+1].focus();
-                }
-            }
-        }
-    }
-    function permitirEnvio(e){
-        e.preventDefault();
-        var elementos = document.formulario.elements;
-        var vacio =false;
-        for(var i =0; i<elementos.length;i++){
-            if(elementos[i].value=="" && elementos[i].type =="text"){
-                vacio =true;
-            }
-        }   
-        if(vacio=true){
-            alert("Rellena todos los campos");
-        }else{
-            document.formulario.submit();
 }
-        }
 
-        function limpia(e){
-            e.preventDefault();
-            var elementos = document.formulario.elements;
-            for(var i =0; i<elementos.length;i++){
-                if(elementos[i].type=="text"){
-                elementos[i].style.backgroundColor="transparent";
-                elementos[i].value="";
+}
+function compruebaVacios(e){
+    var elementos = document.formulario.elements;
+    e.preventDefault();
+    for(var i =0; i<elementos.length;i++){
+        if(this===elementos[i]){
+            for(var j=0; j<=i;j++){
+                if(elementos[j].value=="" && elementos[j].type==="text"){
+                    elementos[j].style.backgroundColor = "red";
+                }else{
+                    elementos[j].style.backgroundColor = "transparent";
                 }
-            }
-
         }
+        }
+    }
+}
+function permitirEnvio(e){
+    e.preventDefault();
+    var elementos = document.formulario.elements;
+    var todolleno = true;
+    for(var i =0; i<elementos.length; i++){
+        if(elementos[i].value=""){
+            todolleno= false;
+        }
+    }
+    if(todolleno==true){
+        document.formulario.submit();
+    }else{
+        alert("faltan campos por rellenar");
+    }
+}
+
+function limpia(e){
+    var elementos = document.formulario.elements;
+    for(var i =0; i<elementos.length; i++){
+            if(elementos[i].type =="text"){
+                elementos[i].style.backgroundColor="white";
+            }
+            
+        }
+    }
+    
+
+
+
 
 </script>
 </head>
