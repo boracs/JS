@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    window.onload=inicio;
+    function inicio(){
+        var input = document.createElement("input");
+        input.type ="text";
+        input.id="input";
+        document.body.appendChild(input);
+
+    for(var i=0; i<10; i++){
+        var btn = document.createElement("button");
+        btn.value = i;
+        btn.textContent=i;
+        btn.addEventListener("click",carga);
+        document.body.appendChild(btn);
+    }
+
+var btnenviar = document.createElement("button");
+btnenviar.textContent = "Enviar";
+btnenviar.addEventListener("click",valida);
+document.body.appendChild(btnenviar);
+    }
+    function carga(e){
+        var inp = document.getElementById("input");
+        inp.value = inp.value + this.value;
+    }
+
+function valida(){
+   var input  = document.getElementById("input");
+ var valor = input.value;
+   if(valor.length >=4 && valor.length<=8){
+    alert("todo correcto se envio");
+   }else{
+    alert("met eunumero entre 4 y 8 digitos");
+   }
+
+
+
+}
+
+
+</script>
+
+
+</head>
+<body>
+
+
+
+    
+</body>
+</html>

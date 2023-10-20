@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<!-- Se ingresan por parte del usuario los resultados de la evaluación de 5 alumnos en
+un curso de Programación; por cada alumno se informa de:
+● Nombre de alumno
+● Asistencia: 1-presente, 0-ausente
+● Calificación: número de 1-10
+A partir de esta información se debe calcular e informar dentro de un nuevo elemento
+● La cantidad y porcentaje de alumnos presentes.
+● Promedio de calificaciones de alumnos ausentes.
+● Porcentaje de alumnos aprobados sobre el total y sus nombres.
+● Nombre del alumno de mayor calificación y cuál es dicha calificación.-->
+
+<script>
+window.onload = inicio;
+function inicio(){
+
+var cantAlumPres =0;
+var promediaNotaAlumnosAuentes =0;
+
+    for(var i =0; i<5; i++){
+        var nombre = prompt("dame el nombre");
+
+        var asistencias = prompt("dame asistencia 1 presente 0 ausente");
+        var asis = parseInt(asistencias);
+        var calificacion = prompt("dame nota ");
+        var calif = parseInt(calificacion);
+        cantAlumPres = cantAlumPres + asis;
+        if(asis == 1){
+            promediaNotaAlumnosAuentes = promediaNotaAlumnosAuentes + calif;
+        }
+
+    }    
+    var parrafo = document.createElement("p");
+    var  cont = "Los alumnos asisitidos son  " + cantAlumPres + " y el porcentaje " + cantAlumPres/5 * 100+ "%. El promediao de la calificacion de los alumnos ausentes es de"+(promediaNotaAlumnosAuentes/(5-asis));
+    console.log(cont);
+    parrafo.textContent=cont;
+    document.body.appendChild(parrafo);
+
+}
+
+
+
+</script>
+</head>
+<body>
+    <h1>INFORMACION:</h1>
+</body>
+
+
+</body>
+</html>
